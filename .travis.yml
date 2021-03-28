@@ -10,15 +10,15 @@ script:
 
 deploy:
   provider: script
-  script:
-    - docker build -t sksk571/multi-client ./client
-    - docker build -t sksk571/multi-nginx ./nginx
-    - docker build -t sksk571/multi-api ./api
-    - docker build -t sksk571/multi-worker ./worker
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - docker push sksk571/multi-client 
-    - docker push sksk571/multi-nginx 
-    - docker push sksk571/multi-api 
-    - docker push sksk571/multi-worker 
+  script: >-
+    docker build -t sksk571/multi-client ./client &&
+    docker build -t sksk571/multi-nginx ./nginx &&
+    docker build -t sksk571/multi-api ./api &&
+    docker build -t sksk571/multi-worker ./worker &&
+    echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin &&
+    docker push sksk571/multi-client &&
+    docker push sksk571/multi-nginx &&
+    docker push sksk571/multi-api &&
+    docker push sksk571/multi-worker &&
   on:
     branch: master
