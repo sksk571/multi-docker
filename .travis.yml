@@ -19,6 +19,6 @@ deploy:
     docker push sksk571/multi-client &&
     docker push sksk571/multi-nginx &&
     docker push sksk571/multi-api &&
-    docker push sksk571/multi-worker &&
+    docker push sksk571/multi-worker
   on:
     branch: master
